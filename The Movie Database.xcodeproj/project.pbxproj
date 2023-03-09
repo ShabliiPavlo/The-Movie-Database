@@ -20,6 +20,7 @@
 		40352CA429AEBEFF00DAEE4C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CA329AEBEFF00DAEE4C /* DetailViewController.swift */; };
 		40352CAA29AEC52F00DAEE4C /* ExtantionMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */; };
 		40352CAC29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */; };
+		407A673329BA2B83009931A7 /* SaveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A673229BA2B83009931A7 /* SaveList.swift */; };
 		40C0583E29AF78C5009DF8C3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 40C0583D29AF78C5009DF8C3 /* Podfile */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		40352CA329AEBEFF00DAEE4C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionMoviesViewController.swift; sourceTree = "<group>"; };
 		40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionWatchLaterTableViewController.swift; sourceTree = "<group>"; };
+		407A673229BA2B83009931A7 /* SaveList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveList.swift; sourceTree = "<group>"; };
 		40C0583D29AF78C5009DF8C3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		80540B340E11FD483D226F7B /* Pods_The_Movie_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Movie_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF961D5FA3FF9E4809C7D83D /* Pods-The Movie Database.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Movie Database.debug.xcconfig"; path = "Target Support Files/Pods-The Movie Database/Pods-The Movie Database.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,8 +103,8 @@
 		40352CA529AEBFD200DAEE4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				40C0584029AF7B97009DF8C3 /* TvData */,
-				40C0583F29AF7B74009DF8C3 /* MoviesData */,
+				40C0583F29AF7B74009DF8C3 /* MediaData */,
+				407A673229BA2B83009931A7 /* SaveList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,20 +137,13 @@
 			path = Extantions;
 			sourceTree = "<group>";
 		};
-		40C0583F29AF7B74009DF8C3 /* MoviesData */ = {
+		40C0583F29AF7B74009DF8C3 /* MediaData */ = {
 			isa = PBXGroup;
 			children = (
 				402FC6B029B4E8720009127A /* MoviesData.swift */,
 				402FC6B129B4E8720009127A /* MoviesResults.swift */,
 			);
-			path = MoviesData;
-			sourceTree = "<group>";
-		};
-		40C0584029AF7B97009DF8C3 /* TvData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TvData;
+			path = MediaData;
 			sourceTree = "<group>";
 		};
 		EAE58D0E2A7622D2C03FB5D2 /* Pods */ = {
@@ -276,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407A673329BA2B83009931A7 /* SaveList.swift in Sources */,
 				40352CA229AEB72C00DAEE4C /* WatchLaterTableViewController.swift in Sources */,
 				40352CAC29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift in Sources */,
 				40352C9229AEB2D000DAEE4C /* MoviesViewController.swift in Sources */,

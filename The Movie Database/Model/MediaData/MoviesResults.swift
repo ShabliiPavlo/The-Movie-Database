@@ -16,7 +16,9 @@ struct MoviesResults : Codable {
 	let video : Bool?
 	let vote_average : Double?
 	let vote_count : Int?
+    let name : String?
 
+    
 	enum CodingKeys: String, CodingKey {
 
 		case adult = "adult"
@@ -33,6 +35,7 @@ struct MoviesResults : Codable {
 		case video = "video"
 		case vote_average = "vote_average"
 		case vote_count = "vote_count"
+        case name = "name"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -51,6 +54,7 @@ struct MoviesResults : Codable {
 		video = try values.decodeIfPresent(Bool.self, forKey: .video)
 		vote_average = try values.decodeIfPresent(Double.self, forKey: .vote_average)
 		vote_count = try values.decodeIfPresent(Int.self, forKey: .vote_count)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
 	}
 
 }
