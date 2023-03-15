@@ -19,18 +19,19 @@ class MoviesViewController: UIViewController {
     var segmentedController = "movie"
     
     // Таймер для задержки поискового запроса
-        var searchTimer: Timer?
-        
-        // Последний текст запроса
-        var lastSearchText = ""
-
-        // Задержка поиска
-        let searchDelay: TimeInterval = 1.0
+    var searchTimer: Timer?
     
-    var arrayOfMovies = [String]()
+    // Последний текст запроса
+    var lastSearchText = ""
+   
+    // Задержка поиска
+    let searchDelay: TimeInterval = 1.0
+    
+    var arrayOfMediaName = [String]()
     var arrayOfOverview = [String]()
     var arrayOfPopularity = [Double]()
     var arrayOfPosters = [String]()
+    var arrayOfId = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +48,14 @@ class MoviesViewController: UIViewController {
                 let moviNames = allMoviesData.results ?? []
                 for name in moviNames {
                     if self.segmentedController == "movie" {
-                        self.arrayOfMovies.append(name.title ?? "")
+                        self.arrayOfMediaName.append(name.title ?? "")
                     } else {
-                        self.arrayOfMovies.append(name.name ?? "")
+                        self.arrayOfMediaName.append(name.name ?? "")
                     }
                     self.arrayOfOverview.append(name.overview ?? "")
                     self.arrayOfPopularity.append(name.popularity ?? 0.0)
                     self.arrayOfPosters.append(name.poster_path ?? "")
+                    self.arrayOfId.append(name.id ?? 0)
                 }
                 self.moviesTbleView.reloadData()
             case .failure(let error):
@@ -64,17 +66,19 @@ class MoviesViewController: UIViewController {
     
     @IBAction func segmantedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-               segmentedController = "movie"
-            } else {
-                segmentedController = "tv"
-            }
-        arrayOfMovies = []
-            arrayOfOverview = []
-            arrayOfPopularity = []
-            arrayOfPosters = []
-            moviesTbleView.reloadData()
-            getMoviesTitle()
+            segmentedController = "movie"
+        } else {
+            segmentedController = "tv"
+        }
+        arrayOfId = []
+        arrayOfMediaName = []
+        arrayOfOverview = []
+        arrayOfPopularity = []
+        arrayOfPosters = []
+        moviesTbleView.reloadData()
+        getMoviesTitle()
     }
+
 }
 
 

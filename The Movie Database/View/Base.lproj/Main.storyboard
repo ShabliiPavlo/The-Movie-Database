@@ -181,21 +181,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajY-Tb-bTr">
-                                <rect key="frame" x="173" y="777" width="61" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
-                                <connections>
-                                    <action selector="saveButton:" destination="h3i-U6-eH9" eventType="touchUpInside" id="i88-it-Ko5"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kei-SD-Xrf" customClass="YTPlayerView" customModule="youtube_ios_player_helper_swift">
+                                <rect key="frame" x="16" y="573" width="361" height="173"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fx9-Ug-m6J"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="BEl-Ah-yI2" secondAttribute="trailing" constant="77" id="9J8-jC-3iK"/>
+                            <constraint firstItem="kei-SD-Xrf" firstAttribute="top" secondItem="aj8-qg-8xG" secondAttribute="bottom" constant="20" id="CBf-lu-FjD"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="trailing" secondItem="aj8-qg-8xG" secondAttribute="trailing" id="DRQ-ov-Rfd"/>
                             <constraint firstItem="aj8-qg-8xG" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="77" id="Fm3-c6-3uV"/>
+                            <constraint firstItem="kei-SD-Xrf" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="16" id="Jvs-dT-YTw"/>
                             <constraint firstItem="aj8-qg-8xG" firstAttribute="top" secondItem="Kc2-mb-rdw" secondAttribute="bottom" constant="-2" id="Lb9-gO-nr6"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="leading" secondItem="aj8-qg-8xG" secondAttribute="leading" id="MWL-Ep-6h4"/>
                             <constraint firstItem="BEl-Ah-yI2" firstAttribute="top" secondItem="Enx-Ye-va1" secondAttribute="bottom" constant="8" id="ZE5-qe-jmI"/>
@@ -204,11 +202,10 @@
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="bottom" secondItem="aj8-qg-8xG" secondAttribute="bottom" constant="216" id="i2r-GK-Tjl"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="top" secondItem="BEl-Ah-yI2" secondAttribute="bottom" id="iQ9-NG-XCk"/>
                             <constraint firstItem="Enx-Ye-va1" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="86" id="ls5-TO-mXp"/>
-                            <constraint firstItem="ajY-Tb-bTr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pjh-lh-NJp" secondAttribute="leading" constant="20" symbolic="YES" id="sxb-ct-PNI"/>
-                            <constraint firstAttribute="bottom" secondItem="ajY-Tb-bTr" secondAttribute="bottom" constant="40" id="tQb-VB-ejJ"/>
+                            <constraint firstAttribute="bottom" secondItem="kei-SD-Xrf" secondAttribute="bottom" constant="106" id="ska-hQ-Nh2"/>
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="aj8-qg-8xG" secondAttribute="trailing" constant="77" id="uiy-4J-9Zi"/>
+                            <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="kei-SD-Xrf" secondAttribute="trailing" constant="16" id="wGb-54-e6d"/>
                             <constraint firstItem="Enx-Ye-va1" firstAttribute="top" secondItem="fx9-Ug-m6J" secondAttribute="top" id="x0B-HO-h9K"/>
-                            <constraint firstAttribute="trailing" secondItem="ajY-Tb-bTr" secondAttribute="trailing" constant="159" id="y8g-PC-PaY"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -218,6 +215,7 @@
                         <outlet property="mediaPopularity" destination="aj8-qg-8xG" id="27d-PB-GfC"/>
                         <outlet property="mediaPoster" destination="BEl-Ah-yI2" id="eIW-cz-1Vb"/>
                         <outlet property="mediaTitle" destination="Enx-Ye-va1" id="yzY-hP-5wy"/>
+                        <outlet property="youTbubePlayer" destination="kei-SD-Xrf" id="sxj-Jq-Qv9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrR-xo-YxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,6 +244,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

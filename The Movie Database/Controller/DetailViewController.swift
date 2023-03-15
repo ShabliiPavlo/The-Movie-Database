@@ -7,6 +7,8 @@
 
 import UIKit
 import SDWebImage
+import youtube_ios_player_helper_swift
+import Alamofire
 
 class DetailViewController: UIViewController {
     
@@ -18,11 +20,15 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var mediaPopularity: UILabel!
     
-    // MARCK - буферные переменные для отобраения данных о фильмах
+    @IBOutlet weak var youTbubePlayer: YTPlayerView!
+    
+    // MARCK - буферные переменные для отобржения данных о фильмах
     var movieName = ""
     var moviePoster = ""
     var movieOverview = ""
     var moviePopularity = 0.0
+    var mediaId = 0
+    var segmentedController = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +43,17 @@ class DetailViewController: UIViewController {
         mediaPoster.sd_setImage(with: posterURL)
         mediaOverview.text = movieOverview
         mediaPopularity.text = "Popularity: \(String(moviePopularity))"
+        loadTrailer()
     }
     
-    
-    @IBAction func saveButton(_ sender: UIButton) {
+    func loadTrailer() {
+        let url = "https://api.themoviedb.org/3/\(segmentedController)/\(mediaId)/videos?api_key=96cfbe0ba15c4721bca8030e8e32becb&language=en-US"
+        AF.request(url).responseDecodable(of:VideoResponce.self) { dataResponse in
+            let videos = dataResponse.value?.results
+            guard let key = videos?.first?.key else { return }
+            self.youTbubePlayer.load(videoId: key)
+            self.youTbubePlayer.playVideo()
+        }
         
     }
     

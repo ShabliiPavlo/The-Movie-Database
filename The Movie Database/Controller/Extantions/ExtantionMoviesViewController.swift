@@ -18,10 +18,12 @@ extension MoviesViewController: UITableViewDelegate {
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         // MARCK - пушим данные про фильмы
-        let moviesNames = arrayOfMovies[indexPath.row]
+        let moviesNames = arrayOfMediaName[indexPath.row]
         let moviesPosters = arrayOfPosters[indexPath.row]
         let moviesOverview = arrayOfOverview[indexPath.row]
         let moviesPopularity = arrayOfPopularity[indexPath.row]
+        let id = arrayOfId[indexPath.row]
+        let segmentedController = segmentedController
         
         if let detailViewController = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
             
@@ -29,6 +31,8 @@ extension MoviesViewController: UITableViewDelegate {
             detailViewController.moviePoster = moviesPosters
             detailViewController.movieOverview = moviesOverview
             detailViewController.moviePopularity = moviesPopularity
+            detailViewController.mediaId = id
+            detailViewController.segmentedController = segmentedController
             
             navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -38,12 +42,12 @@ extension MoviesViewController: UITableViewDelegate {
 //MARCK - задаем колличествоячеек и названия фильмов для таблици
 extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfMovies.count
+        return arrayOfMediaName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var filmTitle = arrayOfMovies[indexPath.row]
+        let filmTitle = arrayOfMediaName[indexPath.row]
         cell.textLabel?.text = filmTitle
         return cell
     }
@@ -65,7 +69,7 @@ extension MoviesViewController: UISearchBarDelegate {
             
             // Проверяем, что текст запроса изменился за время задержки
             guard let self = self, self.lastSearchText == searchText else {
-                self?.arrayOfMovies = []
+                self?.arrayOfMediaName = []
                 self?.arrayOfOverview = []
                 self?.arrayOfPopularity = []
                 self?.arrayOfPosters = []
@@ -92,19 +96,21 @@ extension MoviesViewController: UISearchBarDelegate {
             switch response.result {
             case .success(let allMoviesData):
                 let moviNames = allMoviesData.results ?? []
-                self.arrayOfMovies = []
+                self.arrayOfMediaName = []
                 self.arrayOfOverview = []
                 self.arrayOfPopularity = []
                 self.arrayOfPosters = []
+                self.arrayOfId = []
                 for name in moviNames {
                     if self.segmentedController == "movie" {
-                        self.arrayOfMovies.append(name.title ?? "")
+                        self.arrayOfMediaName.append(name.title ?? "")
                     } else {
-                        self.arrayOfMovies.append(name.name ?? "")
+                        self.arrayOfMediaName.append(name.name ?? "")
                     }
                     self.arrayOfOverview.append(name.overview ?? "")
                     self.arrayOfPopularity.append(name.popularity ?? 0.0)
                     self.arrayOfPosters.append(name.poster_path ?? "")
+                    self.arrayOfId.append(name.id ?? 0)
                 }
                 self.moviesTbleView.reloadData()
             case .failure(let error):
