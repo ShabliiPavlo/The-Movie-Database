@@ -35,6 +35,7 @@ class MoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         getMoviesTitle()
     }
     
@@ -45,8 +46,8 @@ class MoviesViewController: UIViewController {
             
             switch response.result {
             case .success(let allMoviesData):
-                let moviNames = allMoviesData.results ?? []
-                for name in moviNames {
+                let mediaData = allMoviesData.results ?? []
+                for name in mediaData {
                     if self.segmentedController == "movie" {
                         self.arrayOfMediaName.append(name.title ?? "")
                     } else {
@@ -77,6 +78,12 @@ class MoviesViewController: UIViewController {
         arrayOfPosters = []
         moviesTbleView.reloadData()
         getMoviesTitle()
+    }
+    
+    // Создаем ниб 
+    func configureUI() {
+        let nib = UINib(nibName: "MediaTableViewCell", bundle: nil)
+        moviesTbleView.register(nib, forCellReuseIdentifier: "MediaTableViewCell")
     }
 
 }

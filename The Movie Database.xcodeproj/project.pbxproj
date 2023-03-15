@@ -21,6 +21,8 @@
 		40352CAA29AEC52F00DAEE4C /* ExtantionMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */; };
 		40352CAC29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */; };
 		4036955629C1167000BEB2E9 /* VideoResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4036955529C1167000BEB2E9 /* VideoResponce.swift */; };
+		405F60E829C26B0F00D5C169 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */; };
+		405F60E929C26B0F00D5C169 /* MediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */; };
 		407A673329BA2B83009931A7 /* SaveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A673229BA2B83009931A7 /* SaveList.swift */; };
 		40C0583E29AF78C5009DF8C3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 40C0583D29AF78C5009DF8C3 /* Podfile */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionMoviesViewController.swift; sourceTree = "<group>"; };
 		40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionWatchLaterTableViewController.swift; sourceTree = "<group>"; };
 		4036955529C1167000BEB2E9 /* VideoResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponce.swift; sourceTree = "<group>"; };
+		405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
+		405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaTableViewCell.xib; sourceTree = "<group>"; };
 		407A673229BA2B83009931A7 /* SaveList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveList.swift; sourceTree = "<group>"; };
 		40C0583D29AF78C5009DF8C3 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		80540B340E11FD483D226F7B /* Pods_The_Movie_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Movie_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,7 @@
 		40352CA529AEBFD200DAEE4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				405F60E529C26A9300D5C169 /* MediaTableViewCell */,
 				40C0583F29AF7B74009DF8C3 /* MediaData */,
 				407A673229BA2B83009931A7 /* SaveList.swift */,
 			);
@@ -137,6 +142,15 @@
 				40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */,
 			);
 			path = Extantions;
+			sourceTree = "<group>";
+		};
+		405F60E529C26A9300D5C169 /* MediaTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */,
+				405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */,
+			);
+			path = MediaTableViewCell;
 			sourceTree = "<group>";
 		};
 		40C0583F29AF7B74009DF8C3 /* MediaData */ = {
@@ -221,6 +235,7 @@
 				40352C9A29AEB2D200DAEE4C /* LaunchScreen.storyboard in Resources */,
 				40352C9729AEB2D200DAEE4C /* Assets.xcassets in Resources */,
 				40C0583E29AF78C5009DF8C3 /* Podfile in Resources */,
+				405F60E929C26B0F00D5C169 /* MediaTableViewCell.xib in Resources */,
 				40352C9529AEB2D000DAEE4C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +299,7 @@
 				402FC6B229B4E8720009127A /* MoviesData.swift in Sources */,
 				402FC6B329B4E8720009127A /* MoviesResults.swift in Sources */,
 				40352CAA29AEC52F00DAEE4C /* ExtantionMoviesViewController.swift in Sources */,
+				405F60E829C26B0F00D5C169 /* MediaTableViewCell.swift in Sources */,
 				40352C9029AEB2D000DAEE4C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

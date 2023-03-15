@@ -46,9 +46,10 @@ extension MoviesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = moviesTbleView.dequeueReusableCell(withIdentifier: "MediaTableViewCell") as? MediaTableViewCell else { return UITableViewCell()}
         let filmTitle = arrayOfMediaName[indexPath.row]
-        cell.textLabel?.text = filmTitle
+        let posterPath = arrayOfPosters[indexPath.row]
+        cell.configureWith(nameOrTitle: filmTitle, posterPath: posterPath)
         return cell
     }
 }
