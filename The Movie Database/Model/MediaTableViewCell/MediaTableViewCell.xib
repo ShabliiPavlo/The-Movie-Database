@@ -29,26 +29,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy2-HE-Lmg">
-                        <rect key="frame" x="301" y="119.99999999999999" width="61" height="34.333333333333329"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="filled" title="Save"/>
-                        <connections>
-                            <action selector="saveBottomPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WV3-T6-clr"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="wy2-HE-Lmg" secondAttribute="bottom" constant="33.670000000000002" id="0Xs-fp-1Tk"/>
                     <constraint firstItem="LnI-4q-x5u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="0zQ-zA-Zhu"/>
-                    <constraint firstItem="wy2-HE-Lmg" firstAttribute="top" secondItem="YLb-8t-32e" secondAttribute="bottom" constant="22" id="6Ue-2E-nRW"/>
-                    <constraint firstItem="wy2-HE-Lmg" firstAttribute="top" secondItem="YLb-8t-32e" secondAttribute="bottom" constant="22" id="Kr9-sd-mQg"/>
                     <constraint firstItem="YLb-8t-32e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="PZQ-dQ-oPq"/>
                     <constraint firstItem="LnI-4q-x5u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Z0B-am-Kvs"/>
-                    <constraint firstAttribute="trailing" secondItem="wy2-HE-Lmg" secondAttribute="trailing" constant="107" id="brd-M6-teQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YLb-8t-32e" secondAttribute="trailing" constant="-14" id="aiY-Hn-p2Y"/>
                     <constraint firstItem="YLb-8t-32e" firstAttribute="leading" secondItem="LnI-4q-x5u" secondAttribute="trailing" constant="8" id="fXq-gx-SEl"/>
                     <constraint firstAttribute="bottom" secondItem="LnI-4q-x5u" secondAttribute="bottom" constant="22" id="mvq-24-UxY"/>
-                    <constraint firstItem="wy2-HE-Lmg" firstAttribute="leading" secondItem="LnI-4q-x5u" secondAttribute="trailing" constant="96" id="nTq-PM-1Jx"/>
                     <constraint firstItem="YLb-8t-32e" firstAttribute="leading" secondItem="LnI-4q-x5u" secondAttribute="trailing" constant="8" symbolic="YES" id="pt5-2d-Qqr"/>
                 </constraints>
             </tableViewCellContentView>

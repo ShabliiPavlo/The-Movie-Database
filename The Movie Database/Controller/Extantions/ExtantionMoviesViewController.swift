@@ -17,7 +17,7 @@ extension MoviesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let main = UIStoryboard(name: "Main", bundle: nil)
-        // MARCK - пушим данные про фильмы
+        // MARK - пушим данные про фильмы
         let moviesNames = arrayOfMediaName[indexPath.row]
         let moviesPosters = arrayOfPosters[indexPath.row]
         let moviesOverview = arrayOfOverview[indexPath.row]
@@ -47,9 +47,13 @@ extension MoviesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = moviesTbleView.dequeueReusableCell(withIdentifier: "MediaTableViewCell") as? MediaTableViewCell else { return UITableViewCell()}
+        
+        //MARK - данные отображающиеся в ячейке
         let filmTitle = arrayOfMediaName[indexPath.row]
         let posterPath = arrayOfPosters[indexPath.row]
-        cell.configureWith(nameOrTitle: filmTitle, posterPath: posterPath)
+        
+        cell.configureWith(nameOrTitle: filmTitle,
+                           posterPath: posterPath)
         return cell
     }
 }
@@ -78,7 +82,6 @@ extension MoviesViewController: UISearchBarDelegate {
                 self?.getMoviesTitle()
                 return
             }
-            
             // Выполняем поиск
             self.searchMovies()
         })

@@ -9,20 +9,20 @@ import UIKit
 import SDWebImage
 import youtube_ios_player_helper_swift
 import Alamofire
+import RealmSwift
 
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var mediaTitle: UILabel!
-    
     @IBOutlet weak var mediaPoster: UIImageView!
-    
     @IBOutlet weak var mediaOverview: UILabel!
-    
     @IBOutlet weak var mediaPopularity: UILabel!
-    
     @IBOutlet weak var youTbubePlayer: YTPlayerView!
     
-    // MARCK - буферные переменные для отобржения данных о фильмах
+    // Добавляем сам Realm
+    let realm = try? Realm()
+    
+    // MARK - буферные переменные для отобржения данных о фильмах
     var movieName = ""
     var moviePoster = ""
     var movieOverview = ""
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARCK - отображение данных о фильмах в сториборде
+        //MARK - отображение данных о фильмах в сториборде
         
         mediaOverview.numberOfLines = 0
         mediaTitle.text = movieName
@@ -46,6 +46,10 @@ class DetailViewController: UIViewController {
         loadTrailer()
     }
     
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        saveRealm()
+    }
+    
     func loadTrailer() {
         let url = "https://api.themoviedb.org/3/\(segmentedController)/\(mediaId)/videos?api_key=96cfbe0ba15c4721bca8030e8e32becb&language=en-US"
         AF.request(url).responseDecodable(of:VideoResponce.self) { dataResponse in
@@ -54,7 +58,18 @@ class DetailViewController: UIViewController {
             self.youTbubePlayer.load(videoId: key)
             self.youTbubePlayer.playVideo()
         }
-        
     }
     
+    func saveRealm() {
+        let mediaResult = SaveList()
+        mediaResult.idMedia = mediaId
+        mediaResult.mediaOverview = movieOverview
+        mediaResult.mediaName = movieName
+        mediaResult.mediaPopularity = moviePopularity
+        mediaResult.mediaPoster = moviePoster
+        mediaResult.mediaSegmentedController = segmentedController
+        try? realm?.write {
+            realm?.add(mediaResult)
+        }
+    }
 }

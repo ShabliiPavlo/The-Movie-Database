@@ -15,7 +15,7 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var moviesTbleView: UITableView!
     
-    //MARCK - переключатель с фильмов на сериалы
+    //MARK - переключатель с фильмов на сериалы
     var segmentedController = "movie"
     
     // Таймер для задержки поискового запроса
@@ -39,7 +39,7 @@ class MoviesViewController: UIViewController {
         getMoviesTitle()
     }
     
-    //MARCK - данные названия фильмов в таблицу .reloadData() и парсим данные для подготовленных масивов
+    //MARK - данные названия фильмов в таблицу .reloadData() и парсим данные для подготовленных масивов
     func getMoviesTitle() {
         let urlSerchingMovie = "https://api.themoviedb.org/3/discover/\(segmentedController)?api_key=96cfbe0ba15c4721bca8030e8e32becb"
         AF.request(urlSerchingMovie).responseDecodable(of: MoviesData.self) { response in

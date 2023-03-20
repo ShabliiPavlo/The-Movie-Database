@@ -153,6 +153,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enx-Ye-va1" userLabel="Title">
                                 <rect key="frame" x="86" y="59" width="221" height="76"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="76" id="6uN-AJ-cee"/>
                                 </constraints>
@@ -183,8 +184,23 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kei-SD-Xrf" customClass="YTPlayerView" customModule="youtube_ios_player_helper_swift">
                                 <rect key="frame" x="16" y="573" width="361" height="173"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tintColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6U-v6-5ru">
+                                <rect key="frame" x="334" y="80" width="43" height="35"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="YxM-p4-aEa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="43" id="yod-S9-4xW"/>
+                                </constraints>
+                                <color key="tintColor" red="0.14117647059999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="S" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="h3i-U6-eH9" eventType="touchUpInside" id="asW-v1-N9Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fx9-Ug-m6J"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,11 +209,13 @@
                             <constraint firstItem="kei-SD-Xrf" firstAttribute="top" secondItem="aj8-qg-8xG" secondAttribute="bottom" constant="20" id="CBf-lu-FjD"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="trailing" secondItem="aj8-qg-8xG" secondAttribute="trailing" id="DRQ-ov-Rfd"/>
                             <constraint firstItem="aj8-qg-8xG" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="77" id="Fm3-c6-3uV"/>
+                            <constraint firstItem="e6U-v6-5ru" firstAttribute="top" secondItem="fx9-Ug-m6J" secondAttribute="top" constant="21" id="Jcd-bg-2TZ"/>
                             <constraint firstItem="kei-SD-Xrf" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="16" id="Jvs-dT-YTw"/>
                             <constraint firstItem="aj8-qg-8xG" firstAttribute="top" secondItem="Kc2-mb-rdw" secondAttribute="bottom" constant="-2" id="Lb9-gO-nr6"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="leading" secondItem="aj8-qg-8xG" secondAttribute="leading" id="MWL-Ep-6h4"/>
                             <constraint firstItem="BEl-Ah-yI2" firstAttribute="top" secondItem="Enx-Ye-va1" secondAttribute="bottom" constant="8" id="ZE5-qe-jmI"/>
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="Enx-Ye-va1" secondAttribute="trailing" constant="86" id="a7J-Xy-Ilz"/>
+                            <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="e6U-v6-5ru" secondAttribute="trailing" constant="16" id="efB-ez-S1M"/>
                             <constraint firstItem="BEl-Ah-yI2" firstAttribute="leading" secondItem="fx9-Ug-m6J" secondAttribute="leading" constant="77" id="fVn-KX-ZKf"/>
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="bottom" secondItem="aj8-qg-8xG" secondAttribute="bottom" constant="216" id="i2r-GK-Tjl"/>
                             <constraint firstItem="Kc2-mb-rdw" firstAttribute="top" secondItem="BEl-Ah-yI2" secondAttribute="bottom" id="iQ9-NG-XCk"/>
@@ -206,6 +224,7 @@
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="aj8-qg-8xG" secondAttribute="trailing" constant="77" id="uiy-4J-9Zi"/>
                             <constraint firstItem="fx9-Ug-m6J" firstAttribute="trailing" secondItem="kei-SD-Xrf" secondAttribute="trailing" constant="16" id="wGb-54-e6d"/>
                             <constraint firstItem="Enx-Ye-va1" firstAttribute="top" secondItem="fx9-Ug-m6J" secondAttribute="top" id="x0B-HO-h9K"/>
+                            <constraint firstItem="e6U-v6-5ru" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Enx-Ye-va1" secondAttribute="trailing" constant="8" symbolic="YES" id="yuF-Od-ADY"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -245,8 +264,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
