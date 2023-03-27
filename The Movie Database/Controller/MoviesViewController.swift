@@ -33,8 +33,10 @@ class MoviesViewController: UIViewController {
     var arrayOfPosters = [String]()
     var arrayOfId = [Int]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        tabBarController?.setTabBarHidden(false, animated: true)
         configureUI()
         getMoviesTitle()
     }

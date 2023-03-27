@@ -8,5 +8,6 @@ target 'The Movie Database' do
    pod 'Alamofire'
    pod 'RealmSwift'
    pod 'SDWebImage'
+   pod 'NotificationBannerSwift'
    
 end

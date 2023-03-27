@@ -9,10 +9,10 @@ import Foundation
 import RealmSwift
 
 class SaveList: Object {
-    @objc dynamic var mediaName = ""
-    @objc dynamic var mediaPoster = ""
-    @objc dynamic var mediaOverview = ""
-    @objc dynamic var mediaPopularity = 0.0
-    @objc dynamic var idMedia = 0
-    @objc dynamic var mediaSegmentedController = ""
+    @Persisted var mediaName = ""
+    @Persisted var mediaPoster = ""
+    @Persisted var mediaOverview = ""
+    @Persisted var mediaPopularity = 0.0
+    @Persisted(primaryKey: true) var idMedia = 0
+    @Persisted var mediaSegmentedController = ""
 }

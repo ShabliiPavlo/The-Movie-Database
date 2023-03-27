@@ -11,12 +11,13 @@ import Alamofire
 extension MoviesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 180
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let main = UIStoryboard(name: "Main", bundle: nil)
+        
         // MARK - пушим данные про фильмы
         let moviesNames = arrayOfMediaName[indexPath.row]
         let moviesPosters = arrayOfPosters[indexPath.row]
@@ -34,7 +35,8 @@ extension MoviesViewController: UITableViewDelegate {
             detailViewController.mediaId = id
             detailViewController.segmentedController = segmentedController
             
-            navigationController?.pushViewController(detailViewController, animated: true)
+            navigationController?.pushViewController(detailViewController,
+                                                     animated: true)
         }
     }
 }
@@ -51,9 +53,11 @@ extension MoviesViewController: UITableViewDataSource {
         //MARK - данные отображающиеся в ячейке
         let filmTitle = arrayOfMediaName[indexPath.row]
         let posterPath = arrayOfPosters[indexPath.row]
+        let popularity = arrayOfPopularity[indexPath.row]
         
         cell.configureWith(nameOrTitle: filmTitle,
-                           posterPath: posterPath)
+                           posterPath: posterPath,
+                           popularity: popularity)
         return cell
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 extension WatchLaterTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 180
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -48,9 +48,11 @@ extension WatchLaterTableViewController: UITableViewDataSource {
         
         let filmSavedTitle = arrayOfSavedMediaName[indexPath.row]
         let posterSavedPath = arrayOfSavedPosters[indexPath.row]
+        let sevedPopularity = arrayOfSavedPopularity[indexPath.row]
         
         cell.configureWith(nameOrTitle: filmSavedTitle,
-                           posterPath: posterSavedPath)
+                           posterPath: posterSavedPath,
+                           popularity: sevedPopularity)
         
         return cell
     }

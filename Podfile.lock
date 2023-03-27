@@ -1,5 +1,9 @@
 PODS:
   - Alamofire (5.6.4)
+  - MarqueeLabel (4.3.0)
+  - NotificationBannerSwift (3.2.0):
+    - MarqueeLabel (~> 4.3.0)
+    - SnapKit (~> 5.6.0)
   - Realm (10.36.0):
     - Realm/Headers (= 10.36.0)
   - Realm/Headers (10.36.0)
@@ -8,10 +12,12 @@ PODS:
   - SDWebImage (5.15.2):
     - SDWebImage/Core (= 5.15.2)
   - SDWebImage/Core (5.15.2)
+  - SnapKit (5.6.0)
   - youtube-ios-player-helper-swift (1.1)
 
 DEPENDENCIES:
   - Alamofire
+  - NotificationBannerSwift
   - RealmSwift
   - SDWebImage
   - youtube-ios-player-helper-swift
@@ -19,18 +25,24 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - MarqueeLabel
+    - NotificationBannerSwift
     - Realm
     - RealmSwift
     - SDWebImage
+    - SnapKit
     - youtube-ios-player-helper-swift
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  MarqueeLabel: 02f5ac8fd6877c94564556cb93fa86c70c08baeb
+  NotificationBannerSwift: 437e135298d297fcb03f3eec4466f45cdb128d3d
   Realm: 3fd136cb4c83a927482a7f1612496d37beed3cf5
   RealmSwift: 513d4dcbf5bfc4d573454088b592685fc48dd716
   SDWebImage: 8ab87d4b3e5cc4927bd47f78db6ceb0b94442577
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   youtube-ios-player-helper-swift: 51a3c5325317c8271d0c7985c1bbe5a252ffb2fd
 
-PODFILE CHECKSUM: f5904763177805d338889f437ebb6e04c94835e0
+PODFILE CHECKSUM: cf1b4265143291ce956674f8efcf0cd5ac21faa3
 
 COCOAPODS: 1.11.3

@@ -21,6 +21,7 @@
 		40352CAA29AEC52F00DAEE4C /* ExtantionMoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */; };
 		40352CAC29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */; };
 		4036955629C1167000BEB2E9 /* VideoResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4036955529C1167000BEB2E9 /* VideoResponce.swift */; };
+		4054C75229CFAC1000CB080A /* ExtantionUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4054C75129CFAC1000CB080A /* ExtantionUITabBarController.swift */; };
 		405F60E829C26B0F00D5C169 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */; };
 		405F60E929C26B0F00D5C169 /* MediaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */; };
 		407A673329BA2B83009931A7 /* SaveList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407A673229BA2B83009931A7 /* SaveList.swift */; };
@@ -44,6 +45,7 @@
 		40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionMoviesViewController.swift; sourceTree = "<group>"; };
 		40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionWatchLaterTableViewController.swift; sourceTree = "<group>"; };
 		4036955529C1167000BEB2E9 /* VideoResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponce.swift; sourceTree = "<group>"; };
+		4054C75129CFAC1000CB080A /* ExtantionUITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtantionUITabBarController.swift; sourceTree = "<group>"; };
 		405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaTableViewCell.xib; sourceTree = "<group>"; };
 		407A673229BA2B83009931A7 /* SaveList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveList.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */,
 				40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */,
+				4054C75129CFAC1000CB080A /* ExtantionUITabBarController.swift */,
 			);
 			path = Extantions;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				402FC6B229B4E8720009127A /* MoviesData.swift in Sources */,
 				402FC6B329B4E8720009127A /* MoviesResults.swift in Sources */,
 				40352CAA29AEC52F00DAEE4C /* ExtantionMoviesViewController.swift in Sources */,
+				4054C75229CFAC1000CB080A /* ExtantionUITabBarController.swift in Sources */,
 				405F60E829C26B0F00D5C169 /* MediaTableViewCell.swift in Sources */,
 				40352C9029AEB2D000DAEE4C /* SceneDelegate.swift in Sources */,
 			);

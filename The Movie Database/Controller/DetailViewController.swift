@@ -10,9 +10,11 @@ import SDWebImage
 import youtube_ios_player_helper_swift
 import Alamofire
 import RealmSwift
+import NotificationBannerSwift
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var mediaTitle: UILabel!
     @IBOutlet weak var mediaPoster: UIImageView!
     @IBOutlet weak var mediaOverview: UILabel!
@@ -30,14 +32,15 @@ class DetailViewController: UIViewController {
     var mediaId = 0
     var segmentedController = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        saveButton.layer.cornerRadius = 20
+        self.tabBarController?.tabBar.isHidden = true
         
         //MARK - отображение данных о фильмах в сториборде
-        
-        mediaOverview.numberOfLines = 0
+    
         mediaTitle.text = movieName
-        
         let posterURL = URL(
             string: "https://image.tmdb.org/t/p/w500\(moviePoster)")
         mediaPoster.sd_setImage(with: posterURL)
@@ -48,6 +51,10 @@ class DetailViewController: UIViewController {
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         saveRealm()
+        sender.setTitle("Ok!", for: .normal)
+        let banner = StatusBarNotificationBanner(title: "Saved successfully",
+                                                 style: .success)
+        banner.show()
     }
     
     func loadTrailer() {
@@ -69,7 +76,7 @@ class DetailViewController: UIViewController {
         mediaResult.mediaPoster = moviePoster
         mediaResult.mediaSegmentedController = segmentedController
         try? realm?.write {
-            realm?.add(mediaResult)
+            realm?.add(mediaResult, update: .all)
         }
     }
 }

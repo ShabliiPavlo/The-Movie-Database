@@ -27,6 +27,8 @@ class WatchLaterTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        tabBarController?.setTabBarHidden(false, animated: true)
         self.moviesResults = self.getFromRealm()
         configureUISaved()
         getData()
