@@ -8,23 +8,22 @@
 import UIKit
 import Alamofire
 
-
 class MoviesViewController: UIViewController {
     
     @IBOutlet weak var moviesOrSeriesSegmentedontrol: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var moviesTbleView: UITableView!
     
-    //MARK - переключатель с фильмов на сериалы
+    //MARK: переключатель с фильмов на сериалы
     var segmentedController = "movie"
     
-    // Таймер для задержки поискового запроса
+    //MARK: таймер для задержки поискового запроса
     var searchTimer: Timer?
     
-    // Последний текст запроса
+    //MARK: последний текст запроса
     var lastSearchText = ""
-   
-    // Задержка поиска
+    
+    //MARK: задержка поиска
     let searchDelay: TimeInterval = 1.0
     
     var arrayOfMediaName = [String]()
@@ -34,17 +33,22 @@ class MoviesViewController: UIViewController {
     var arrayOfId = [Int]()
     
     override func viewWillAppear(_ animated: Bool) {
-        
         super.viewWillAppear(animated)
+        
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField
+        {
+            textField.textColor = UIColor.white
+        }
         tabBarController?.setTabBarHidden(false, animated: true)
         configureUI()
-        getMoviesTitle()
+        getMoviesData()
     }
     
-    //MARK - данные названия фильмов в таблицу .reloadData() и парсим данные для подготовленных масивов
-    func getMoviesTitle() {
+    //MARK: данные названия фильмов в таблицу .reloadData() и парсим данные для подготовленных масивов
+    func getMoviesData() {
         let urlSerchingMovie = "https://api.themoviedb.org/3/discover/\(segmentedController)?api_key=96cfbe0ba15c4721bca8030e8e32becb"
-        AF.request(urlSerchingMovie).responseDecodable(of: MoviesData.self) { response in
+        AF.request(urlSerchingMovie).responseDecodable(of: MoviesData.self)
+        { response in
             
             switch response.result {
             case .success(let allMoviesData):
@@ -67,7 +71,8 @@ class MoviesViewController: UIViewController {
         }
     }
     
-    @IBAction func segmantedControlValueChanged(_ sender: UISegmentedControl) {
+    @IBAction func segmantedControlValueChanged(_ sender: UISegmentedControl)
+    {
         if sender.selectedSegmentIndex == 0 {
             segmentedController = "movie"
         } else {
@@ -79,15 +84,15 @@ class MoviesViewController: UIViewController {
         arrayOfPopularity = []
         arrayOfPosters = []
         moviesTbleView.reloadData()
-        getMoviesTitle()
+        getMoviesData()
     }
     
-    // Создаем ниб 
-    func configureUI() {
+    //MARK: создаем ниб 
+    func configureUI()
+    {
         let nib = UINib(nibName: "MediaTableViewCell", bundle: nil)
         moviesTbleView.register(nib, forCellReuseIdentifier: "MediaTableViewCell")
     }
-
 }
 
 

@@ -18,7 +18,7 @@ extension MoviesViewController: UITableViewDelegate {
         
         let main = UIStoryboard(name: "Main", bundle: nil)
         
-        // MARK - пушим данные про фильмы
+        // MARK: пушим данные про фильмы
         let moviesNames = arrayOfMediaName[indexPath.row]
         let moviesPosters = arrayOfPosters[indexPath.row]
         let moviesOverview = arrayOfOverview[indexPath.row]
@@ -41,8 +41,9 @@ extension MoviesViewController: UITableViewDelegate {
     }
 }
 
-//MARCK - задаем колличествоячеек и названия фильмов для таблици
+//MARK: задаем колличествоячеек и названия фильмов для таблици
 extension MoviesViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfMediaName.count
     }
@@ -50,7 +51,7 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = moviesTbleView.dequeueReusableCell(withIdentifier: "MediaTableViewCell") as? MediaTableViewCell else { return UITableViewCell()}
         
-        //MARK - данные отображающиеся в ячейке
+        //MARK: данные отображающиеся в ячейке
         let filmTitle = arrayOfMediaName[indexPath.row]
         let posterPath = arrayOfPosters[indexPath.row]
         let popularity = arrayOfPopularity[indexPath.row]
@@ -64,34 +65,34 @@ extension MoviesViewController: UITableViewDataSource {
 
 extension MoviesViewController: UISearchBarDelegate {
     
-    // Метод, вызывающийся при изменении текста в поисковой строке
+    //MARK: метод, вызывающийся при изменении текста в поисковой строке
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        // Сброс таймера
+        //MARK: сброс таймера
         searchTimer?.invalidate()
         
-        // Сохраняем текст запроса
+        //MARK: сохраняем текст запроса
         lastSearchText = searchText
         
-        // Запускаем таймер для задержки поиска
+        //MARK: запускаем таймер для задержки поиска
         searchTimer = Timer.scheduledTimer(withTimeInterval: searchDelay, repeats: false, block: { [weak self] _ in
             
-            // Проверяем, что текст запроса изменился за время задержки
+            //MARK: проверяем, что текст запроса изменился за время задержки
             guard let self = self, self.lastSearchText == searchText else {
                 self?.arrayOfMediaName = []
                 self?.arrayOfOverview = []
                 self?.arrayOfPopularity = []
                 self?.arrayOfPosters = []
                 self?.moviesTbleView.reloadData()
-                self?.getMoviesTitle()
+                self?.getMoviesData()
                 return
             }
-            // Выполняем поиск
+            //MARK: выполняем поиск
             self.searchMovies()
         })
     }
     
-    // Метод, выполняющий поиск фильмов
+    //MARK: метод, выполняющий поиск фильмов
     func searchMovies() {
         let urlSearch: String
         if segmentedController == "movie" {

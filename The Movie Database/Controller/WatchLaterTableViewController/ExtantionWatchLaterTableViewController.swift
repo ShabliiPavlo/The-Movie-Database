@@ -39,6 +39,7 @@ extension WatchLaterTableViewController: UITableViewDelegate {
 }
 
 extension WatchLaterTableViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesResults.count
     }
@@ -68,7 +69,6 @@ extension WatchLaterTableViewController: UITableViewDataSource {
             
             moviesResults.remove(at: indexPath.row)
             watchLaterTableView.deleteRows(at: [indexPath], with: .automatic)
-            
         }
     }
 }

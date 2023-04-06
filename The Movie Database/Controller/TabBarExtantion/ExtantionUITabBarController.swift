@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UITabBarController {
+    
     func setTabBarHidden(_ hidden: Bool, animated: Bool) {
         if tabBar.isHidden == hidden { return }
         let frame = tabBar.frame

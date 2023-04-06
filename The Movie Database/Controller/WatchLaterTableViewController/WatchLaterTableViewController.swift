@@ -9,13 +9,13 @@ import UIKit
 import RealmSwift
 
 class WatchLaterTableViewController: UIViewController {
-
+    
     @IBOutlet weak var watchLaterTableView: UITableView!
     
-    // Добавляем сам Realm
+    //MARK: добавляем сам Realm
     let realm = try? Realm()
     
-    // MARK - хранилище данных для Realm
+    //MARK: хранилище данных для Realm
     var moviesResults = [SaveList]()
     
     var arrayOfSavedMediaName = [String]()
@@ -47,24 +47,23 @@ class WatchLaterTableViewController: UIViewController {
         return mediaData
     }
     
-    // 
     func getData() {
-            arrayOfSavedId.removeAll()
-            arrayOfSavedPosters.removeAll()
-            arrayOfSavedOverview.removeAll()
-            arrayOfSavedPopularity.removeAll()
-            arrayOfSavedMediaName.removeAll()
-            arrayOfSegmentedController.removeAll()
-            
-            for data in moviesResults {
-                arrayOfSavedId.append(data.idMedia)
-                arrayOfSavedPosters.append(data.mediaPoster)
-                arrayOfSavedOverview.append(data.mediaOverview)
-                arrayOfSavedPopularity.append(data.mediaPopularity)
-                arrayOfSavedMediaName.append(data.mediaName)
-                arrayOfSegmentedController.append(data.mediaSegmentedController)
-            }
+        arrayOfSavedId = []
+        arrayOfSavedPosters = []
+        arrayOfSavedOverview = []
+        arrayOfSavedPopularity = []
+        arrayOfSavedMediaName = []
+        arrayOfSegmentedController = []
+        
+        for data in moviesResults {
+            arrayOfSavedId.append(data.idMedia)
+            arrayOfSavedPosters.append(data.mediaPoster)
+            arrayOfSavedOverview.append(data.mediaOverview)
+            arrayOfSavedPopularity.append(data.mediaPopularity)
+            arrayOfSavedMediaName.append(data.mediaName)
+            arrayOfSegmentedController.append(data.mediaSegmentedController)
         }
+    }
     
     func configureUISaved() {
         let nib = UINib(nibName: "MediaTableViewCell", bundle: nil)

@@ -21,10 +21,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var mediaPopularity: UILabel!
     @IBOutlet weak var youTbubePlayer: YTPlayerView!
     
-    // Добавляем сам Realm
+    // MARK: добавляем сам Realm
     let realm = try? Realm()
     
-    // MARK - буферные переменные для отобржения данных о фильмах
+    // MARK: буферные переменные для отобржения данных о фильмах
     var movieName = ""
     var moviePoster = ""
     var movieOverview = ""
@@ -38,8 +38,8 @@ class DetailViewController: UIViewController {
         saveButton.layer.cornerRadius = 20
         self.tabBarController?.tabBar.isHidden = true
         
-        //MARK - отображение данных о фильмах в сториборде
-    
+        //MARK: отображение данных о фильмах в сториборде
+        
         mediaTitle.text = movieName
         let posterURL = URL(
             string: "https://image.tmdb.org/t/p/w500\(moviePoster)")
@@ -47,12 +47,19 @@ class DetailViewController: UIViewController {
         mediaOverview.text = movieOverview
         mediaPopularity.text = "Popularity: \(String(moviePopularity))"
         loadTrailer()
+        
+        //MARK: отображение проверки на сохраненность
+        let result = realm?.objects(SaveList.self).filter("idMedia = %@", mediaId).first
+        if result != nil {
+            saveButton.setTitle("Ok!", for: .normal)
+        }
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         saveRealm()
+        
         sender.setTitle("Ok!", for: .normal)
-        let banner = StatusBarNotificationBanner(title: "Saved successfully",
+        let banner = StatusBarNotificationBanner(title: "In Storage",
                                                  style: .success)
         banner.show()
     }
@@ -77,6 +84,7 @@ class DetailViewController: UIViewController {
         mediaResult.mediaSegmentedController = segmentedController
         try? realm?.write {
             realm?.add(mediaResult, update: .all)
+            saveButton.setTitle("Ok!", for: .normal)
         }
     }
 }

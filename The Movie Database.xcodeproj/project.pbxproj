@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				40352C9329AEB2D000DAEE4C /* Main.storyboard */,
+				405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,29 +130,26 @@
 		40352CA729AEBFEC00DAEE4C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				40352C9129AEB2D000DAEE4C /* MoviesViewController.swift */,
-				40352CA129AEB72C00DAEE4C /* WatchLaterTableViewController.swift */,
+				40F8358329DCD11E006C287D /* MoviesViewController */,
+				40F8358429DCD13F006C287D /* WatchLaterTableViewController */,
 				40352CA329AEBEFF00DAEE4C /* DetailViewController.swift */,
-				40352CA829AEC4FA00DAEE4C /* Extantions */,
+				40352CA829AEC4FA00DAEE4C /* TabBarExtantion */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		40352CA829AEC4FA00DAEE4C /* Extantions */ = {
+		40352CA829AEC4FA00DAEE4C /* TabBarExtantion */ = {
 			isa = PBXGroup;
 			children = (
-				40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */,
-				40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */,
 				4054C75129CFAC1000CB080A /* ExtantionUITabBarController.swift */,
 			);
-			path = Extantions;
+			path = TabBarExtantion;
 			sourceTree = "<group>";
 		};
 		405F60E529C26A9300D5C169 /* MediaTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				405F60E629C26B0F00D5C169 /* MediaTableViewCell.swift */,
-				405F60E729C26B0F00D5C169 /* MediaTableViewCell.xib */,
 			);
 			path = MediaTableViewCell;
 			sourceTree = "<group>";
@@ -164,6 +162,24 @@
 				4036955529C1167000BEB2E9 /* VideoResponce.swift */,
 			);
 			path = MediaData;
+			sourceTree = "<group>";
+		};
+		40F8358329DCD11E006C287D /* MoviesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				40352C9129AEB2D000DAEE4C /* MoviesViewController.swift */,
+				40352CA929AEC52F00DAEE4C /* ExtantionMoviesViewController.swift */,
+			);
+			path = MoviesViewController;
+			sourceTree = "<group>";
+		};
+		40F8358429DCD13F006C287D /* WatchLaterTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				40352CA129AEB72C00DAEE4C /* WatchLaterTableViewController.swift */,
+				40352CAB29AEC7D000DAEE4C /* ExtantionWatchLaterTableViewController.swift */,
+			);
+			path = WatchLaterTableViewController;
 			sourceTree = "<group>";
 		};
 		EAE58D0E2A7622D2C03FB5D2 /* Pods */ = {
