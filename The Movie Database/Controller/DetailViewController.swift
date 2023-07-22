@@ -32,8 +32,8 @@ class DetailViewController: UIViewController {
     var mediaId = 0
     var segmentedController = ""
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         saveButton.layer.cornerRadius = 20
         self.tabBarController?.tabBar.isHidden = true
@@ -70,7 +70,6 @@ class DetailViewController: UIViewController {
             let videos = dataResponse.value?.results
             guard let key = videos?.first?.key else { return }
             self.youTbubePlayer.load(videoId: key)
-            self.youTbubePlayer.playVideo()
         }
     }
     

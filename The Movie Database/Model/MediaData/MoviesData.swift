@@ -2,25 +2,27 @@
 import Foundation
 
 struct MoviesData : Codable {
-	let page : Int?
 	let results : [MoviesResults]?
-	let total_pages : Int?
-	let total_results : Int?
-
+    
 	enum CodingKeys: String, CodingKey {
-
-		case page = "page"
-		case results = "results"
-		case total_pages = "total_pages"
-		case total_results = "total_results"
+        case results = "results"
 	}
+}
 
-	init(from decoder: Decoder) throws {
-		let values = try decoder.container(keyedBy: CodingKeys.self)
-		page = try values.decodeIfPresent(Int.self, forKey: .page)
-		results = try values.decodeIfPresent([MoviesResults].self, forKey: .results)
-		total_pages = try values.decodeIfPresent(Int.self, forKey: .total_pages)
-		total_results = try values.decodeIfPresent(Int.self, forKey: .total_results)
-	}
+struct MoviesResults : Codable {
+    let id : Int?
+    let overview : String?
+    let popularity : Double?
+    let poster_path : String?
+    let title : String?
+    let name : String?
 
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case overview = "overview"
+        case popularity = "popularity"
+        case poster_path = "poster_path"
+        case title = "title"
+        case name = "name"
+    }
 }

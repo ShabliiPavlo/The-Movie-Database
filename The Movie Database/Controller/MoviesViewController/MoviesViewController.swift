@@ -15,7 +15,7 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var moviesTbleView: UITableView!
     
     //MARK: переключатель с фильмов на сериалы
-    var segmentedController = "movie"
+    var mediaType: MediaType = .movie
     
     //MARK: таймер для задержки поискового запроса
     var searchTimer: Timer?
@@ -35,18 +35,22 @@ class MoviesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let textField = searchBar.value(forKey: "searchField") as? UITextField
-        {
-            textField.textColor = UIColor.white
-        }
+        colorText()
         tabBarController?.setTabBarHidden(false, animated: true)
         configureUI()
         getMoviesData()
     }
     
+    func colorText() {
+        if let textField = searchBar.value(forKey: "searchField") as? UITextField
+        {
+            textField.textColor = UIColor.white
+        }
+    }
+    
     //MARK: данные названия фильмов в таблицу .reloadData() и парсим данные для подготовленных масивов
     func getMoviesData() {
-        let urlSerchingMovie = "https://api.themoviedb.org/3/discover/\(segmentedController)?api_key=96cfbe0ba15c4721bca8030e8e32becb"
+        let urlSerchingMovie = "https://api.themoviedb.org/3/discover/\(mediaType.rawValue)?api_key=96cfbe0ba15c4721bca8030e8e32becb"
         AF.request(urlSerchingMovie).responseDecodable(of: MoviesData.self)
         { response in
             
@@ -54,7 +58,7 @@ class MoviesViewController: UIViewController {
             case .success(let allMoviesData):
                 let mediaData = allMoviesData.results ?? []
                 for name in mediaData {
-                    if self.segmentedController == "movie" {
+                    if self.mediaType == .movie {
                         self.arrayOfMediaName.append(name.title ?? "")
                     } else {
                         self.arrayOfMediaName.append(name.name ?? "")
@@ -74,9 +78,9 @@ class MoviesViewController: UIViewController {
     @IBAction func segmantedControlValueChanged(_ sender: UISegmentedControl)
     {
         if sender.selectedSegmentIndex == 0 {
-            segmentedController = "movie"
+            mediaType = .movie
         } else {
-            segmentedController = "tv"
+            mediaType = .tv
         }
         arrayOfId = []
         arrayOfMediaName = []
@@ -93,6 +97,11 @@ class MoviesViewController: UIViewController {
         let nib = UINib(nibName: "MediaTableViewCell", bundle: nil)
         moviesTbleView.register(nib, forCellReuseIdentifier: "MediaTableViewCell")
     }
+}
+
+enum MediaType: String {
+    case tv
+    case movie
 }
 
 

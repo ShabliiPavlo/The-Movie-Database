@@ -7,7 +7,6 @@
 
 import UIKit
 import SDWebImage
-import RealmSwift
 
 class MediaTableViewCell: UITableViewCell {
     
@@ -26,12 +25,5 @@ class MediaTableViewCell: UITableViewCell {
             string: "https://image.tmdb.org/t/p/w500\(posterPath)")
         cellPoster.sd_setImage(with: posterURL)
     }
-    
-    func chekSeve(seve:Bool) {
-        if seve == true {
-            cellTitle.textColor = .green
-        } else {
-            cellTitle.textColor = .white
-        }
-    }
 }
+    

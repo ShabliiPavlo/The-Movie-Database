@@ -24,7 +24,7 @@ extension MoviesViewController: UITableViewDelegate {
         let moviesOverview = arrayOfOverview[indexPath.row]
         let moviesPopularity = arrayOfPopularity[indexPath.row]
         let id = arrayOfId[indexPath.row]
-        let segmentedController = segmentedController
+        let segmentedController = mediaType
         
         if let detailViewController = main.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
             
@@ -33,7 +33,7 @@ extension MoviesViewController: UITableViewDelegate {
             detailViewController.movieOverview = moviesOverview
             detailViewController.moviePopularity = moviesPopularity
             detailViewController.mediaId = id
-            detailViewController.segmentedController = segmentedController
+            detailViewController.segmentedController = mediaType.rawValue
             
             navigationController?.pushViewController(detailViewController,
                                                      animated: true)
@@ -95,7 +95,7 @@ extension MoviesViewController: UISearchBarDelegate {
     //MARK: метод, выполняющий поиск фильмов
     func searchMovies() {
         let urlSearch: String
-        if segmentedController == "movie" {
+        if mediaType == .movie {
             urlSearch = "https://api.themoviedb.org/3/search/movie?api_key=96cfbe0ba15c4721bca8030e8e32becb&query=\(lastSearchText)"
         } else {
             urlSearch = "https://api.themoviedb.org/3/search/tv?api_key=96cfbe0ba15c4721bca8030e8e32becb&query=\(lastSearchText)"
@@ -111,7 +111,7 @@ extension MoviesViewController: UISearchBarDelegate {
                 self.arrayOfPosters = []
                 self.arrayOfId = []
                 for name in moviNames {
-                    if self.segmentedController == "movie" {
+                    if self.mediaType == .movie {
                         self.arrayOfMediaName.append(name.title ?? "")
                     } else {
                         self.arrayOfMediaName.append(name.name ?? "")
